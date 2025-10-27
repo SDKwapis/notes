@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 4000;
+const PORT = 4000;
 const cors = require("cors");
 const path = require("path");
 
@@ -14,10 +14,20 @@ const path = require("path");
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) =>
+app.get("/", (req, res) => res.send("Navigate to /send"))
+
+app.get("/send", (req, res) =>
   res.sendFile(path.join(__dirname, "./public/index.html"))
 );
 
-app.listen(port, () => {
-  console.log(`server is active at http://localhost:${port}`);
+app.get("/api", (req, res) => {
+  res.json({
+    term: "api",
+    description:
+    "An application programming interface, is a computing interface that defines interactions between multiple software intermediaries",
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`server is active at http://localhost:${PORT}`);
 });
