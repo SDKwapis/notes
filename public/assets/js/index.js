@@ -7,4 +7,5 @@ document.getElementById("submitButton").addEventListener("click", () => {
   document.getElementById("notes").appendChild(newDiv);
   document.getElementById("inputBox").value = "";
   document.getElementById("inputBox").focus();
+  console.log("something works");
 })
